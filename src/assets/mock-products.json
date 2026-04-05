@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "title": "Camiseta básica de algodón",
+        "price": 19.99,
+        "description": "Camiseta unisex de algodón 100% con corte clásico y tejido transpirable.",
+        "category": "Ropa",
+        "image": "assets/mock-images/product-1.png",
+        "rating": {
+            "rate": 4.4,
+            "count": 128
+        }
+    },
+    {
+        "id": 2,
+        "title": "Audifonos inalámbricos",
+        "price": 59.5,
+        "description": "Auriculares Bluetooth con cancelación pasiva de ruido y batería de larga duración.",
+        "category": "Electrónica",
+        "image": "assets/mock-images/product-2.png",
+        "rating": {
+            "rate": 4.2,
+            "count": 342
+        }
+    },
+    {
+        "id": 3,
+        "title": "Mochila impermeable",
+        "price": 34.0,
+        "description": "Mochila ligera con compartimento para portátil de 15 pulgadas y material resistente al agua.",
+        "category": "Accesorios",
+        "image": "assets/mock-images/product-3.png",
+        "rating": {
+            "rate": 4.6,
+            "count": 210
+        }
+    },
+    {
+        "id": 4,
+        "title": "Zapatillas deportivas running",
+        "price": 89.99,
+        "description": "Zapatillas con suela amortiguada y diseño ergonómico para entrenamiento diario.",
+        "category": "Calzado",
+        "image": "assets/mock-images/product-4.png",
+        "rating": {
+            "rate": 4.7,
+            "count": 175
+        }
+    },
+    {
+        "id": 5,
+        "title": "Reloj inteligente FitTrack",
+        "price": 129.0,
+        "description": "Smartwatch con monitor de ritmo cardíaco, seguimiento de sueño y notificaciones.",
+        "category": "Electrónica",
+        "image": "assets/mock-images/product-5.png",
+        "rating": {
+            "rate": 4.3,
+            "count": 96
+        }
+    },
+    {
+        "id": 6,
+        "title": "Botella térmica de acero 750ml",
+        "price": 22.75,
+        "description": "Botella reutilizable que mantiene bebidas frías o calientes hasta 12 horas.",
+        "category": "Hogar",
+        "image": "assets/mock-images/product-6.png",
+        "rating": {
+            "rate": 4.8,
+            "count": 401
+        }
+    },
+    {
+        "id": 7,
+        "title": "Lámpara LED de escritorio",
+        "price": 27.3,
+        "description": "Lámpara con intensidad regulable, puerto USB y brazo ajustable.",
+        "category": "Hogar",
+        "image": "assets/mock-images/product-7.png",
+        "rating": {
+            "rate": 4.1,
+            "count": 67
+        }
+    },
+    {
+        "id": 8,
+        "title": "Gafas de sol polarizadas",
+        "price": 39.95,
+        "description": "Gafas con protección UV400 y lentes polarizadas para reducir reflejos.",
+        "category": "Accesorios",
+        "image": "assets/mock-images/product-8.png",
+        "rating": {
+            "rate": 4.5,
+            "count": 154
+        }
+    }
+]

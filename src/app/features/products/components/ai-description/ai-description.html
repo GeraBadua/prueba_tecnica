@@ -1,0 +1,24 @@
+<section class="ai-box">
+  <button class="ai-button" type="button" (click)="generateDescription()" [disabled]="loading()">
+    @if (loading()) {
+      Generando...
+    } @else {
+      Generar descripción con IA
+    }
+  </button>
+
+  @if (loading()) {
+    <p class="ai-loading">Analizando producto y generando descripción...</p>
+  }
+
+  @if (generatedText()) {
+    <div class="ai-result">
+      <h3>Descripción generada</h3>
+      <p>{{ generatedText() }}</p>
+    </div>
+  }
+
+  @if (error()) {
+    <p class="ai-error">{{ error() }}</p>
+  }
+</section>

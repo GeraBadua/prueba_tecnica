@@ -1,0 +1,29 @@
+<section class="detail-page">
+  <a routerLink="/products" class="back-link">← Volver al catálogo</a>
+
+  @if (loading()) {
+    <p>Cargando detalle...</p>
+  } @else if (error()) {
+    <p class="error">{{ error() }}</p>
+  } @else if (product()) {
+    <div class="detail-card">
+      <div class="image-box">
+        <img [src]="product()!.image" [alt]="product()!.title" />
+      </div>
+
+      <div class="info-box">
+        <p class="category">{{ product()!.category }}</p>
+        <h1>{{ product()!.title }}</h1>
+        <p class="price">{{ product()!.price | currency:'USD':'symbol':'1.2-2' }}</p>
+        <p class="description">{{ product()!.description }}</p>
+
+        <div class="rating">
+          <span>Calificación: {{ product()!.rating.rate }}</span>
+          <span>Opiniones: {{ product()!.rating.count }}</span>
+        </div>
+
+        <app-ai-description [product]="product()!" />
+      </div>
+    </div>
+  }
+</section>

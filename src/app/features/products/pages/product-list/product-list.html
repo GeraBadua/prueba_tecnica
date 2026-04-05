@@ -1,0 +1,76 @@
+<section class="page">
+  <header class="header">
+    <h1>Catalogo de productos</h1>
+    <p>Explora articulos disponibles por categoria y precio.</p>
+  </header>
+
+  @if (loading()) {
+    <div class="state state-loading" role="status" aria-live="polite">
+      <span class="spinner" aria-hidden="true"></span>
+      <span>Cargando productos...</span>
+    </div>
+  } @else if (error()) {
+    <div class="state state-error" role="alert">
+      {{ error() }}
+    </div>
+  } @else {
+    <section class="filters" aria-label="Filtros de productos">
+      <div class="filter-group">
+        <label for="search">Buscar por nombre</label>
+        <input
+          id="search"
+          type="search"
+          placeholder="Ej: Audifonos"
+          [value]="searchTerm()"
+          (input)="updateSearchTerm($any($event.target).value)"
+        />
+      </div>
+
+      <div class="filter-group">
+        <label for="category">Categoria</label>
+        <select
+          id="category"
+          [value]="selectedCategory()"
+          (change)="updateCategory($any($event.target).value)"
+        >
+          <option value="all">Todas</option>
+          @for (category of categories(); track category) {
+            <option [value]="category">{{ category }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="sort">Orden por precio</label>
+        <select
+          id="sort"
+          [value]="priceSort()"
+          (change)="updatePriceSort($any($event.target).value)"
+        >
+          <option value="none">Sin orden</option>
+          <option value="asc">Menor a mayor</option>
+          <option value="desc">Mayor a menor</option>
+        </select>
+      </div>
+    </section>
+
+    @if (filteredProducts().length === 0) {
+      <p class="empty-state">No se encontraron productos con los filtros actuales.</p>
+    } @else {
+      <div class="grid">
+        @for (product of filteredProducts(); track product.id) {
+          <a class="card-link" [routerLink]="['/products', product.id]">
+            <article class="card">
+              <img [src]="product.image" [alt]="product.title" loading="lazy" />
+              <div class="card-content">
+                <h2>{{ product.title }}</h2>
+                <p class="category">{{ product.category }}</p>
+                <p class="price">{{ product.price | currency: 'USD':'symbol':'1.2-2' }}</p>
+              </div>
+            </article>
+          </a>
+        }
+      </div>
+    }
+  }
+</section>
