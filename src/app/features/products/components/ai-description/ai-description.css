@@ -1,55 +1,80 @@
 .ai-box {
-  margin-top: 24px;
+  margin-top: 1.45rem;
   display: grid;
-  gap: 14px;
+  gap: 0.8rem;
 }
 
 .ai-button {
-  border: none;
-  border-radius: 12px;
-  padding: 14px 18px;
-  font-size: 1rem;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  padding: 0.78rem 1rem;
+  min-height: 46px;
+  font-size: 0.96rem;
   font-weight: 700;
   cursor: pointer;
-  background: #111827;
+  background: linear-gradient(135deg, #219ebc 0%, #023047 100%);
   color: #ffffff;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 10px 20px rgba(2, 48, 71, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
 .ai-button:hover:not(:disabled) {
   transform: translateY(-2px);
+  background: linear-gradient(135deg, #023047 0%, #012636 100%);
+  box-shadow: 0 14px 24px rgba(2, 48, 71, 0.35);
+}
+
+.ai-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(142, 202, 230, 0.45), 0 12px 20px rgba(2, 48, 71, 0.28);
 }
 
 .ai-button:disabled {
-  opacity: 0.7;
+  opacity: 0.72;
+  box-shadow: none;
   cursor: not-allowed;
 }
 
 .ai-loading {
-  color: #374151;
+  margin: 0;
+  color: var(--text-muted);
   font-weight: 500;
 }
 
 .ai-result {
-  border: 1px solid #dbeafe;
-  background: #eff6ff;
-  border-radius: 14px;
-  padding: 16px;
+  border: 1px solid var(--primary-100);
+  background: var(--bg-soft-blue);
+  border-radius: var(--radius-md);
+  padding: 0.95rem 1rem;
+  box-shadow: var(--shadow-sm);
 }
 
 .ai-result h3 {
-  margin: 0 0 10px;
+  margin: 0 0 0.42rem;
   font-size: 1rem;
-  color: #1d4ed8;
+  color: var(--primary-700);
 }
 
 .ai-result p {
   margin: 0;
   line-height: 1.6;
-  color: #1f2937;
+  color: var(--text-main);
 }
 
 .ai-error {
-  color: #b91c1c;
+  margin: 0;
+  border: 1px solid #ffd7b0;
+  border-radius: var(--radius-md);
+  padding: 0.78rem 0.9rem;
+  background: var(--bg-soft-red);
+  color: var(--error-600);
   font-weight: 600;
+}
+
+@media (min-width: 640px) {
+  .ai-button {
+    width: fit-content;
+    min-width: 250px;
+  }
 }
