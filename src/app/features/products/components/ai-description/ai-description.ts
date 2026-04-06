@@ -1,7 +1,9 @@
 import { Component, Input, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { timeout } from 'rxjs';
 import { Product } from '../../../../core/models/product.model';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-ai-description',
@@ -20,22 +22,18 @@ export class AiDescription {
   error = signal('');
 
   generateDescription(): void {
-    console.log('[AI Description] Iniciando solicitud...');
     this.loading.set(true);
     this.generatedText.set('');
     this.error.set('');
 
     const payload = { product: this.product };
-    console.log('[AI Description] Payload enviado:', payload);
 
-    this.http.post<{ text: string }>('http://localhost:3001/api/ai-description', payload).subscribe({
+    this.http.post<{ text: string }>(environment.aiDescriptionEndpoint, payload).pipe(timeout(10000)).subscribe({
       next: (response) => {
-        console.log('[AI Description] Respuesta recibida:', response);
         this.generatedText.set(response.text);
         this.loading.set(false);
       },
-      error: (err) => {
-        console.error('[AI Description] Error en la solicitud:', err);
+      error: () => {
         this.generatedText.set(this.buildFallbackDescription(this.product));
         this.error.set('Se mostró una descripción de respaldo porque la IA no respondió.');
         this.loading.set(false);

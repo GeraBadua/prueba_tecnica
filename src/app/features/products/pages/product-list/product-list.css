@@ -194,7 +194,6 @@
   color: var(--primary-700);
 }
 
-/* En layout de tienda, header/estados ocupan todo el ancho. */
 .header,
 .state,
 .empty-state {
@@ -214,30 +213,9 @@
     padding: 0.9rem;
   }
 
-  .filter-group {
-    min-width: 0;
-  }
-
   .filter-group input,
   .filter-group select {
     min-height: var(--control-height-default);
-  }
-
-  .grid {
-    gap: 1rem;
-  }
-}
-
-@media (min-width: 900px) and (max-width: 1023px) {
-  .filters {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-items: end;
-    gap: 0.9rem;
-    padding: 0.95rem;
-  }
-
-  .filter-group label {
-    font-size: 0.82rem;
   }
 }
 
